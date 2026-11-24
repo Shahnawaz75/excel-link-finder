@@ -75,6 +75,8 @@ addopts = "-ra"
 [tool.ruff]
 line-length = 130
 target-version = "py310"
+# Keep the hand-aligned Python examples in the Markdown docs as they are.
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "B", "I", "UP"]
