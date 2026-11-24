@@ -1,0 +1,10 @@
+# Normalize text files to LF in the repository
+* text=auto eol=lf
+
+# Workbooks are zip files: never touch their bytes
+*.xlsx binary
+*.xlsm binary
+*.xltx binary
+*.xltm binary
+*.xls binary
+*.png binary

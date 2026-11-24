@@ -1,0 +1,80 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "excel-link-finder"
+version = "0.1.0"
+description = "Find and remove hidden external links in Excel files (.xlsx, .xlsm) without Excel: formulas, defined names, conditional formatting, data validation, charts, pivot caches, buttons and connections. Fixes 'break links not working'."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Shahnawaz75" }]
+keywords = [
+    "excel",
+    "xlsx",
+    "xlsm",
+    "external-links",
+    "break-links",
+    "edit-links",
+    "phantom-links",
+    "defined-names",
+    "conditional-formatting",
+    "data-validation",
+    "openxml",
+    "ooxml",
+    "spreadsheet",
+    "cli",
+    "audit",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Office/Business :: Financial :: Spreadsheet",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7", "openpyxl>=3.1"]
+
+[project.scripts]
+excel-link-finder = "excel_link_finder.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Shahnawaz75/excel-link-finder"
+Documentation = "https://shahnawaz75.github.io/excel-link-finder/"
+Issues = "https://github.com/Shahnawaz75/excel-link-finder/issues"
+Changelog = "https://github.com/Shahnawaz75/excel-link-finder/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "tests", "examples", "docs", "README.md", "CHANGELOG.md", "LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/excel_link_finder"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "B", "I", "UP"]
